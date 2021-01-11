@@ -45,6 +45,9 @@
           <div v-else-if="data">
             <!-- <pre>{{data}}</pre> -->
             <b-container align-v="center" class="container">
+                      <div v-if="data.competitors.companies.length === 0">
+                        <h3 class="text-center">No Competitors !</h3>
+                      </div>
                 <div class="mt-3">
                     <b-card-group  deck class="mb-3">
                         <CompanyCompareCard v-for="company in data.competitors.companies" v-bind:key="company._id" :company="company" />
