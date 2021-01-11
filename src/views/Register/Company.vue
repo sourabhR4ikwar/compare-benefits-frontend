@@ -171,9 +171,9 @@
     <div class="d-flex justify-content-center mt-5">
         <b-button type="submit" variant="info" size="lg">Submit Company</b-button>
     </div>
-    <b-card class="mt-3" header="Form Data Result">
+    <!-- <b-card class="mt-3" header="Form Data Result">
       <pre class="m-0">{{ form }}</pre>
-    </b-card>
+    </b-card> -->
 </b-form>
 </template>
 

@@ -1,5 +1,5 @@
 <template>
-    <b-card :title="company.name" :sub-title="company.industry" :img-src="company.imageUrl" :img-alt="company.name" img-top class="mb-5 text-center custom-card">
+    <b-card :title="company.name" :sub-title="company.industry" :img-src="company.imageUrl" :img-alt="company.name" img-top class="mb-5 text-center mx-auto custom-card">
         <b-card-text class="my-3">
             <div class="d-flex justify-content-between">
                 <span>Website</span>
@@ -27,6 +27,10 @@ export default {
 </script>
 
 <style scoped>
+.custom-card {
+    min-height: 450px;
+    overflow: hidden;
+}
 .custom-card img {
     width: 50%;
     padding: 20px;
@@ -39,7 +43,7 @@ export default {
 @media (max-width: 500px){
 
 .custom-card {
-    max-width: 80%;
+    max-width: 100%;
 }
 }
 </style>

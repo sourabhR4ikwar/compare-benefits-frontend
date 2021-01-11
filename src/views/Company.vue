@@ -11,14 +11,18 @@
           <div v-if="loading"><p>Loading...</p></div>
           <div v-else-if="error">Oops! Something Went Wrong.</div>
           <div v-else-if="data">
-            <!-- <div class="d-flex flex-wrap justify-content-between align-items-center heading-section">
-                <h2 class="text-info font-weight-bold font-size-lg mb-5">{{data.company.name}} Details</h2>
-            </div> -->
-            <HeadingWithLink :title="data.company.name+' Details'" link="Edit" :to="`/company/${$route.params.id}/update`"/>
+              <HeadingWithLink :title="data.company.name+' Details'" link="Edit" :to="`/company/${$route.params.id}/update`"/>
                 <!-- <pre>{{data.company}}</pre> -->
-                <CompanyDetailsCard :company="data.company" />
+              <CompanyDetailsCard :company="data.company" />
           </div>
-          <div v-else>No Results</div>
+          <div v-else>
+            <div class="d-flex justify-content-center mt-5">
+              <b-spinner
+                variant="info"
+                size="lg"
+              ></b-spinner>
+            </div>
+          </div>
         </template>
       </ApolloQuery>
     </div>
@@ -48,7 +52,14 @@
                 </div>
              </b-container>
           </div>
-          <div v-else>No Results</div>
+          <div v-else>
+            <div class="d-flex justify-content-center mt-5">
+              <b-spinner
+                variant="info"
+                size="lg"
+              ></b-spinner>
+            </div>
+          </div>
         </template>
       </ApolloQuery>
     </div>

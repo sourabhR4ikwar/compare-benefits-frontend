@@ -22,10 +22,17 @@
                     </div>
                 </div>
                 <div class="d-flex justify-content-center mt-5">
-                    <b-pagination v-model="page" pills :total-rows="data.competitors.totalCompanies" size="lg"></b-pagination>
+                    <b-pagination v-model="page" pills :total-rows="data.competitors.totalCompanies" ></b-pagination>
                 </div>
             </div>
-            <div v-else>No Results</div>
+            <div v-else>
+              <div class="d-flex justify-content-center mt-5">
+              <b-spinner
+                variant="info"
+                size="lg"
+              ></b-spinner>
+              </div>
+            </div>
             </template>
         </ApolloQuery>
     </div>
@@ -71,6 +78,11 @@ export default {
 }`,
       
   }),
+  watch:{
+    page(){
+      window.scrollTo(0,0);
+    }
+  },
   components: {
     CompanyCompareCard,
     HeadingWithLink

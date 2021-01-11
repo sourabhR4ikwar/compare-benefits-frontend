@@ -19,41 +19,47 @@
         <b-list-group flush>
             <b-list-group-item></b-list-group-item>
             <b-list-group-item>
-                            <b-icon-check2-circle v-if="company.benefits.gym_membership" class="h5 mr-2 mb-0 mt-0" animation="fade"></b-icon-check2-circle>
-                            <b-icon-x-circle v-if="!company.benefits.gym_membership" class="h5 mr-2 mb-0 mt-0"></b-icon-x-circle>
-                            Gym Membership
-                        </b-list-group-item>
-                        <b-list-group-item>
-                            <b-icon-check2-circle v-if="company.benefits.free_doctor_on_call" class="h5 mr-2 mb-0 mt-0" animation="fade"></b-icon-check2-circle>
-                            <b-icon-x-circle v-if="!company.benefits.free_doctor_on_call" class="h5 mr-2 mb-0 mt-0"></b-icon-x-circle>
-                            Free Doctor On Call
-                        </b-list-group-item>
-                        <b-list-group-item>
-                            <b-icon-check2-circle v-if="company.benefits.flexible_work_timings" class="h5 mr-2 mb-0 mt-0" animation="fade"></b-icon-check2-circle>
-                            <b-icon-x-circle v-if="!company.benefits.flexible_work_timings" class="h5 mr-2 mb-0 mt-0"></b-icon-x-circle>
-                            Flexible Work Timings
-                        </b-list-group-item>
-                        <b-list-group-item>
-                            <b-icon-check2-circle v-if="company.benefits.remote_work_friendly" class="h5 mr-2 mb-0 mt-0" animation="fade"></b-icon-check2-circle>
-                            <b-icon-x-circle v-if="!company.benefits.remote_work_friendly" class="h5 mr-2 mb-0 mt-0"></b-icon-x-circle>
-                            Remote Work Friendly
-                        </b-list-group-item>
-                        <b-list-group-item>
-                            <b-icon-check2-circle v-if="company.benefits.health_insurance" class="h5 mr-2 mb-0 mt-0" animation="fade"></b-icon-check2-circle>
-                            <b-icon-x-circle v-if="!company.benefits.health_insurance" class="h5 mr-2 mb-0 mt-0"></b-icon-x-circle>
-                            Health Insurance
-                        </b-list-group-item>
+                <b-icon-check2-circle v-if="company.benefits.gym_membership" class="h5 mr-2 mb-0 mt-0" animation="fade"></b-icon-check2-circle>
+                <b-icon-x-circle v-if="!company.benefits.gym_membership" class="h5 mr-2 mb-0 mt-0"></b-icon-x-circle>
+                Gym Membership
+            </b-list-group-item>
+            <b-list-group-item>
+                <b-icon-check2-circle v-if="company.benefits.free_doctor_on_call" class="h5 mr-2 mb-0 mt-0" animation="fade"></b-icon-check2-circle>
+                <b-icon-x-circle v-if="!company.benefits.free_doctor_on_call" class="h5 mr-2 mb-0 mt-0"></b-icon-x-circle>
+                Free Doctor On Call
+            </b-list-group-item>
+            <b-list-group-item>
+                <b-icon-check2-circle v-if="company.benefits.flexible_work_timings" class="h5 mr-2 mb-0 mt-0" animation="fade"></b-icon-check2-circle>
+                <b-icon-x-circle v-if="!company.benefits.flexible_work_timings" class="h5 mr-2 mb-0 mt-0"></b-icon-x-circle>
+                Flexible Work Timings
+            </b-list-group-item>
+            <b-list-group-item>
+                <b-icon-check2-circle v-if="company.benefits.remote_work_friendly" class="h5 mr-2 mb-0 mt-0" animation="fade"></b-icon-check2-circle>
+                <b-icon-x-circle v-if="!company.benefits.remote_work_friendly" class="h5 mr-2 mb-0 mt-0"></b-icon-x-circle>
+                Remote Work Friendly
+            </b-list-group-item>
+            <b-list-group-item>
+                <b-icon-check2-circle v-if="company.benefits.health_insurance" class="h5 mr-2 mb-0 mt-0" animation="fade"></b-icon-check2-circle>
+                <b-icon-x-circle v-if="!company.benefits.health_insurance" class="h5 mr-2 mb-0 mt-0"></b-icon-x-circle>
+                Health Insurance
+            </b-list-group-item>
             <b-list-group-item></b-list-group-item>
         </b-list-group>
         <br />
-        <routerLink class="btn btn-info" :to="{name: 'Company', params: { id: company._id }}">View Details</routerLink>
+        <button class="btn btn-info" @click="scrollToTop(company._id)">View Details</button>
         <br />
     </b-card>
 </template>
 
 <script>
 export default {
-    props: ['company']
+    props: ['company'],
+    methods:{
+        scrollToTop(id){
+            window.scrollTo(0,0);
+            this.$router.push({name: 'Company', params: { id: id }});
+        }
+    }
 }
 </script>
 
